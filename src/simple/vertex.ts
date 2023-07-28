@@ -50,4 +50,35 @@
         this.y *= factor;
         this.z *= factor;
     }
+
+    /**
+     * Computes the Euclidean distance to another vertex.
+     * @param other - The other vertex.
+     * @returns The distance.
+     */
+    distanceTo(other: Vertex): number {
+        const dx = other.x - this.x;
+        const dy = other.y - this.y;
+        const dz = other.z - this.z;
+        return Math.sqrt(dx * dx + dy * dy + dz * dz);
+    }
+
+    /**
+     * Computes the dot product with another vertex.
+     * @param other - The other vertex.
+     * @returns The dot product.
+     */
+    dotProduct(other: Vertex): number {
+        return this.x * other.x + this.y * other.y + this.z * other.z;
+    }
+
+    /**
+     * Normalizes this vertex, making it a unit vector.
+     */
+    normalize(): void {
+        const length = Math.sqrt(this.x * this.x + this.y * this.y + this.z * this.z);
+        this.x /= length;
+        this.y /= length;
+        this.z /= length;
+    }
 }
